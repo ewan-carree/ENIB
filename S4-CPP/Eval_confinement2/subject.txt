@@ -1,0 +1,245 @@
+╔═════════════════════════╤══════════════════════════════════════════════════╗
+║ Épreuve pratique de C++ │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║
+╚═════════════════════════╧══════════════════════════════════════════════════╝
+
+Vous devrez réaliser un programme "prog.cpp" ainsi qu'un module 
+nommé à votre convenance proposant des fonctionnalités génériques.
+
+Bien entendu, puisque ce qui vous est demandé ici est très
+similaire à ce dont vous avez l'habitude durant les séances à
+l'ENIB, vous êtes supposé :
+. suivre l'organisation classique (.hpp, .cpp, namespace...) et
+  utiliser le fichier GNUmakefile habituel,
+  [ --> le programme principal s'appellera  prog.cpp  ]
+. respecter toutes les bonnes pratiques concernant la mise en
+  forme et la lisibilité/maintenabilité du code source,
+. s'assurer du fait que le programme peut être fabriqué et exécuté
+  sans encombre.
+
+Le thème du sujet proposé ici n'a aucune signification ni aucun intérêt
+pratique ; le seul propos est de vérifier que vous savez appliquer les
+quelques éléments techniques étudiés.
+Il ne s'agit que de suivre _très_scrupuleusement_ ce qui est décrit
+en détail ; il n'est pas question de chercher à inventer des solutions
+puisqu'elles sont explicitement données (il ne manque quasiment que
+les accolades et les point-virgules...)
+
+!!! Il serait complètement hors-sujet de contourner l'objet de cette
+!!! évaluation en recourant à des formulations alternatives qui
+!!! produiraient malgré tout des résultats similaires en apparence.
+
+╔══════════════════════════════════════════════════════╤═════════════════════╗
+║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ Structure générique ║
+╚══════════════════════════════════════════════════════╧═════════════════════╝
+
+Le module réalisé doit tout d'abord fournir une structure _générique_
+nommée "MinMax".
+
+Cette structure est composée de deux données membres "sideA" et "sideB", 
+qui sont d'un type non encore connu.
+
+╭──────╮
+│ Test ├──────────────────────────────────────────────────────────────────────
+╰──────╯
+
+À ce stade, votre programme principal doit se contenter d'initialiser
+deux variables de type "MinMax".
+
+L'une contiendra des données de type "double",
+. son membre "sideA" sera initialisé avec la valeur "3.6",
+. son membre "sideB" sera initialisé avec la valeur "18.2".
+
+L'autre contiendra des données de type "int",
+. son membre "sideA" sera initialisé avec la valeur "-11",
+. son membre "sideB" sera initialisé avec la valeur "11".
+
+╔═══════════════════════════════════════════════════════╤════════════════════╗
+║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ Fonction générique ║
+╚═══════════════════════════════════════════════════════╧════════════════════╝
+
+Le module réalisé doit maintenant proposer une fonction _générique_
+nommée "generate()".
+Cette fonction attend comme paramètres :
+. une référence pour consulter une structure "MinMax",
+. une référence pour consulter une valeur.
+Le type exact des données mémorisées dans la structure et celui du deuxième
+paramètre est le même et il n'est pas encore connu ; c'est en cela que cette
+fonction est générique.
+
+Cette fonction renvoie un vecteur dont les éléments ont le même type que
+ce qui est mémorisé dans la structure "MinMax" passée en paramètre. 
+Avant d'être renvoyé, le vecteur doit être rempli comme suit :
+. le membre le plus petit contenu dans la structure "MinMax"
+  doit être ajouté au vecteur,
+. tant que la somme du dernier élément du vecteur et de la valeur passée
+  en deuxième paramètre à la fonction est strictement inférieure au membre
+  le plus grand de la structure "MinMax", ajoutez cette somme au 
+  vecteur.
+Renvoyer le vecteur.
+Conseil : pour déterminer l'élément le plus petit entre deux, servez vous
+          de la fonction standard "std::min()". Pareillement, servez vous
+          de la fonction standard "std::max()" pour déterminer le plus grand.
+
+╭──────╮
+│ Test ├──────────────────────────────────────────────────────────────────────
+╰──────╯
+
+Invoquez la fonction "generate()" dans le programme principal sur les
+deux variables de type "MinMax" déclarées à l'étape précédente. Comme
+deuxième paramètre passez respectivement la valeur "1.8" et la 
+valeur "2". 
+Vérifiez par un affichage explicite le fait que les deux vecteurs obtenus
+contiennent bien les valeurs attendues.
+
+Conseil : pour afficher le contenu d'un "std::vector" il est nécessaire
+          d'afficher un-à-un ses éléments. Vous serez amenés à afficher un
+          vecteur plusieurs fois pendant ce contrôle, implémenter une petite
+          lambda-closure dédiée à ce propos est fortement conseillé. 
+          Pour rappel, lorsqu'une même lambda-closure peut être utile à
+          plusieurs reprises, il est plus lisible de l'affecter à une variable
+          que l'on utilise autant que nécessaire.
+
+╔══════════════════════════════════════════════╤═════════════════════════════╗
+║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ Exploitation des itérateurs ║
+╚══════════════════════════════════════════════╧═════════════════════════════╝
+
+Le module réalisé doit également proposer une fonction _générique_
+nommée "extract_right()".
+Cette fonction attend comme paramètres :
+. une référence pour consulter un vecteur,
+. une référence pour consulter une valeur.
+Le type exact des données mémorisées dans le vecteur et celui du deuxième
+paramètre est le même et il n'est pas encore connu ; c'est en cela que cette
+fonction est générique.
+
+Cette fonction renvoie un nouveau vecteur dont les éléments ont le même type 
+que ce qui est mémorisé dans le vecteur reçu en paramètre.
+
+La première étape de cette fonction consiste à retrouver
+. à l'aide de la fonction standard "std::find_if()",
+. au sein du vecteur reçu en paramètre,
+. l'emplacement du premier élément qui soit strictement supérieur à la valeur
+  passée comme deuxième paramètre à la fonction.
+
+Ensuite, cette fonction "extract_right()" doit utiliser la fonction générique
+"std::for_each()" afin de
+. consulter les éléments du vecteur reçu en paramètre,
+. depuis l'emplacement trouvé jusqu'à la fin,
+. pour les copier dans le nouveau vecteur qu'il faudra ensuite renvoyer.
+
+╭──────╮
+│ Test ├──────────────────────────────────────────────────────────────────────
+╰──────╯
+
+Votre programme de test devra être complété en utilisant la fonction
+"extract_right()" sur chacun des deux vecteurs créés à l'étape précédente
+à l'aide de la fonction "generate()". Comme deuxième paramètre passez
+respectivement la valeur "10.9" et la valeur "0". 
+Vérifiez par un affichage explicite le fait que ces deux invocations
+produisent bien deux nouveaux vecteurs contenant les valeurs attendues.
+
+╔═════════════════════════════════════╤══════════════════════════════════════╗
+║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ Un autre exploitation des itérateurs ║
+╚═════════════════════════════════════╧══════════════════════════════════════╝
+
+Le module réalisé doit être complété avec une fonction _générique_
+nommée "add_element()".
+Cette fonction attend comme paramètres :
+. une référence pour modifier un vecteur,
+. une référence pour consulter une valeur.
+Le type exact des données mémorisées dans le vecteur et celui du deuxième
+paramètre est le même et il n'est pas encore connu ; c'est en cela que cette
+fonction est générique.
+Cette fonction ne renvoie aucun résultat.
+
+La première étape de cette fonction consiste à retrouver
+. à l'aide de la fonction standard "std::find()",
+. au sein du vecteur passé en paramètre,
+. l'emplacement de l'élément ayant la même valeur que celle du deuxième
+  paramètre de la fonction.
+Si un tel élément n'est pas trouvé, affectez à l'itérateur renvoyé par la
+fonction "std::find()" l'emplacement au milieu du vecteur.
+
+Ensuite, la fonction "add_element()" doit utiliser une fonction générique
+(std::for_each() or std::accumulate()... à vous le choix) afin de
+. calculer la différence des éléments du vecteur passé en paramètre,
+. depuis l'emplacement trouvé jusqu'à la fin.
+Conseil : initialisez la variable destinée à accumuler la différence des 
+          éléments du vecteur avec la valeur à l'emplacement trouvé 
+          et faites commencer l'itération sur le vecteur à l'emplacement
+          suivant.
+Enfin, cette valeur calculée doit être inserée dans le vecteur 
+à l'emplacement trouvé. 
+
+╭──────╮
+│ Test ├──────────────────────────────────────────────────────────────────────
+╰──────╯
+
+Votre programme de test devra être complété en invoquant la fonction
+"add_element()" sur le vecteur renvoyé par le premier appel à la fonction
+"generate()" et une valeur quelconque qui n'apparaît pas dans le vecteur.
+Vérifiez par un affichage explicite le fait que cette invocation
+produit bien le résultat attendu.
+
+
+╔═════════════════════════════════════════════╤══════════════════════════════╗
+║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ Fonction générique adaptable ║
+╚═════════════════════════════════════════════╧══════════════════════════════╝
+
+Le module réalisé doit être complété avec une fonction _générique_
+nommée "add_element()". Vous avez certainement remarqué que le nom de cette
+fonction est le même de la fonction demandée à l'étape précédente. Il s'agit
+donc d'une surcharge. 
+
+La seule différence avec la fonction "add_element()" définie à l'étape précédente
+est que cette fonction doit recevoir en plus comme troisième paramètre un 
+traitement qui pourra être appelé sur les éléments mémorisés dans le vecteur
+reçu en paramètre. Le type exact de ce traitement n'est pas encore connu.
+Comme son homonyme, cette fonction ne renvoie aucun résultat.
+
+Nous supposons que le traitement indiqué en paramètre à "add_element()"
+pourra être utilisé comme s'il s'agissait d'une fonction et il devra remplacer
+le calcul de la différence des éléments du vecteur passé en paramètre.
+
+╭──────╮
+│ Test ├──────────────────────────────────────────────────────────────────────
+╰──────╯
+
+Votre programme de test devra être complété en utilisant la fonction
+"add_element()" que vous venez d'implémenter sur un vecteur de string.
+Pour cela commencez par déclarer un vector de string initialisé
+avec les valeurs :
+    {"dfi", "hgc", "wlqa", "bz", "jqiu", "mq", "qqu", "tgdv"}
+
+Ensuite, invoquez la fonction "add_element()" en lui transmettant ce vector,
+la string qu'il contient en quatrième position et une lambda-closure qui 
+renvoie la somme des deux valeurs qu'elle reçoit en paramètres.
+Vérifiez par un affichage explicite le fait que cette invocation
+produit bien le résultat attendu.
+
+
+
+╔══════════════════╤═════════════════════════════════════════════════════════╗
+║ Rendu du travail │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║
+╚══════════════════╧═════════════════════════════════════════════════════════╝
+
+Rendez-vous sur la page Moodle depuis laquelle vous avez obtenu cet exercice.
+
+Utilisez le bouton "Ajouter un travail".
+  ( ou "Modifier le travail" en cas de nouveau dépôt )
+
+Dans la zone "Remise des fichiers", placez les fichiers   .cpp   et   .hpp
+réalisés par vos soins.
+
+Cochez la case
+  "This assignment is my own work, except where I have
+   acknowledged the use of the works of other people"
+qui est située juste au dessus.
+
+Utilisez le bouton "Enregistrer".
+
+Vous devriez recevoir un e-mail automatique attestant de ce dépôt.
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║
+╚════════════════════════════════════════════════════════════════════════════╝
