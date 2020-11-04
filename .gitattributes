@@ -1,0 +1,8 @@
+#* linguist-vendored
+*.ipynb linguist-vendored=true
+*.txt linguist-vendored=true
+*.md linguist-vendored=true
+*.asc linguist-vendored=true
+*.sql linguist-vendored=false
+S4-ELE/Vuvuzela/vuvuzela_RLC.asc linguist-vendored=true
+GNUmakefile linguist-vendored=true
