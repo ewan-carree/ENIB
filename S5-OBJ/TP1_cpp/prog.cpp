@@ -16,6 +16,8 @@ void test_array()
 	tp1::fillArray(a1);
 	tp1::printArray(a1);
 
+	std::cout << std::endl;
+
 	for (const auto& elem : a1)
 	{
 		std::cout << elem << '=' << tp1::isPalindrome(elem) << std::endl;
@@ -27,7 +29,7 @@ void test_vector(const std::string& s1)
 	try
 	{
 		int extracted_int = std::stoi(s1);
-		std::cout << extracted_int << std::endl;
+		std::cout << "Extracted int : " << extracted_int << std::endl;
 	}	
 	catch(const std::invalid_argument &e)
     	{
@@ -40,16 +42,31 @@ void test_vector(const std::string& s1)
     	}
 
 	auto v1 = tp1::makeVector(6);
+
 	tp1::printVector(v1);
+
+	auto nb_even = tp1::numEven(v1);
+	std::cout << "Number of even inside the int vector : " << nb_even << std::endl;
+
 	auto [average, standard_deviation, median] = tp1::dataVector(v1);
 	std::cout << "average : " << average << ", standard_deviation : " << standard_deviation << ", median : " << median << std::endl;
+}
+
+void test_operator()
+{
+	/*auto v1 = tp1::makeVector(6);
+	auto v2 = tp1::makeVector(6);
+
+	//v1 += v2;
+
+	//auto v3 = v1 + v2;
+
+	tp1::printVector(v3);*/
 }
 
 
 int main(int argc, char const *argv[])
 {
-	std::cout << argv[1] << std::endl;
-	
 	std::cout << "~~~~~~" << __func__ << "~~~~~~" << std::endl;
 
 	if (strcmp(argv[1], "array") == 0)
@@ -59,7 +76,20 @@ int main(int argc, char const *argv[])
 
 	else if (strcmp(argv[1], "vector") == 0)
 	{
-		test_vector(argv[2]);
+		if (argv[2])
+		{
+			test_vector(argv[2]);
+		}
+		else
+		{
+			test_vector("0");
+		}
+		
+	}
+
+	else if (strcmp(argv[1], "operator") == 0)
+	{
+		test_operator();
 	}
 
 	else

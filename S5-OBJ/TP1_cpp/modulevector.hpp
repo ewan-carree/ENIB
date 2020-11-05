@@ -19,6 +19,7 @@ namespace tp1
 	intvec makeVector(const int count, const int nMin = 10, const int nMax = 100);
 	void printVector(const intvec& v1);
 	std::tuple<double, double, double> dataVector(const intvec& v1);
+	int numEven(const intvec& v1);
 
 	class Math_function
 	{
@@ -28,6 +29,9 @@ namespace tp1
 		static double median(const intvec& v1);
 		static double variance(const intvec& v1, const double average);
 	};
+
+	//intvec& operator+=(const intvec& v2);
+	//intvec operator+(intvec const& v1, intvec const& v2);
 
 
 

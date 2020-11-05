@@ -3,10 +3,11 @@
 
 #include <array>
 #include <vector>
-#include <string>
+#include <string.h>
 #include <stdexcept> //runtime_error
 #include <iostream>
 #include <utility> // std::move()
+#include <random>
 
 namespace tp1
 {

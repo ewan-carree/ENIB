@@ -5,16 +5,39 @@ namespace tp1
 
 	void fillArray(str15& a1)
 	{
-		a1 = {"hi", "hello", "anna", "kayak", "21:12", "goodbye"};
+		std::cout << "We modify the string table" << std::endl;
+		std::default_random_engine rndGen{std::random_device{}()};
+		std::uniform_int_distribution<int> lengthDistrib{3, 6};
+		std::uniform_int_distribution<char> charDistrib{'a', 'e'};
+
+		for (int i = 0; i < int(a1.size()); ++i)
+		{
+			std::string word;
+			for (int i = 0; i < lengthDistrib(rndGen); ++i)
+			{
+				word += charDistrib(rndGen);
+			}
+
+			a1[i] = word;
+		}
 	}
 
 	void printArray(const str15& a1)
 	{
-		for (const auto &elem: a1)
+		if (a1[0].size() != 0)
 		{
-			std::cout << elem << " ";
+			std::cout << "Table of string : ";
+			for (const auto &elem: a1)
+			{
+				std::cout << elem << " ";
+			}
+			std::cout << std::endl;
 		}
-		std::cout << std::endl;
+		else
+		{
+			std::cout << "Table of string is empty!" << std::endl;
+		}
+
 	}
 
 	bool isPalindrome(const std::string s1)

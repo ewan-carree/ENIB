@@ -98,6 +98,37 @@ namespace tp1
 		return {std::move(average), std::move(standard_deviation), std::move(median)};
 	}
 
+	int numEven(const intvec& v1)
+	{
+		int result{0};
+
+		for (const auto &elem : v1)
+		{
+			if (elem % 2 == 0)
+			{
+				++result;
+			}
+		}
+		return result;
+	}
+
+	/*
+	intvec& operator+=(const intvec& v2)
+	{
+		for (const auto& elem : v2)
+		{
+			*this.push_back(elem);
+		}
+
+		return *this;
+	}
+
+	intvec operator+(intvec const& v1, intvec const& v2)
+	{
+		auto result = makeVector(6);
+		return result;
+	}*/
+
 
 
 } //tp1
