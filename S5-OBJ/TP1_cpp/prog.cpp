@@ -69,27 +69,30 @@ int main(int argc, char const *argv[])
 {
 	std::cout << "~~~~~~" << __func__ << "~~~~~~" << std::endl;
 
-	if (strcmp(argv[1], "array") == 0)
+	if (argc > 1)
 	{
-		test_array();
-	}
-
-	else if (strcmp(argv[1], "vector") == 0)
-	{
-		if (argv[2])
+		if (strcmp(argv[1], "array") == 0)
 		{
-			test_vector(argv[2]);
+			test_array();
 		}
-		else
-		{
-			test_vector("0");
-		}
-		
-	}
 
-	else if (strcmp(argv[1], "operator") == 0)
-	{
-		test_operator();
+		else if (strcmp(argv[1], "vector") == 0)
+		{
+			if (argv[2])
+			{
+				test_vector(argv[2]);
+			}
+			else
+			{
+				test_vector("0");
+			}
+			
+		}
+		/*
+		else if (strcmp(argv[1], "operator") == 0)
+		{
+			test_operator();
+		}*/
 	}
 
 	else
