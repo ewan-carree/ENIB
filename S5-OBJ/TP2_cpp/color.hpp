@@ -22,7 +22,6 @@ namespace tp2
 
 		uchar& operator[](int i);
 		uchar operator[](int i) const;
-		//std::ostream& operator<<(std::ostream& os, const Color& c1);
 
 		Color(const Color &) = default; //constructeur par recopie
 		Color(Color &&) = default; //constructeur par déplacement

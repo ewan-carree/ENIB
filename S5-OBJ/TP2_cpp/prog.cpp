@@ -23,9 +23,40 @@ void test_color()
 
 }
 
+void test_simple_image()
+{
+	tp2::Image img1{"random",5,3};
+	tp2::Image img2{"black",3,4,false};
+
+	//std::cout << img1 << std::endl;
+	//std::cout << img2 << std::endl;
+}
+
 
 int main(int argc, char const *argv[])
 {
-	test_color();
+	if (argc > 1)
+	{
+		if (strcmp(argv[1], "color") == 0)
+		{
+			test_color();
+		}
+
+		else if (strcmp(argv[1], "simple_image") == 0)
+		{
+			test_simple_image();
+		}
+
+		else
+		{
+			std::cerr << "You didn't enter a correct test" << std::endl;
+		}
+	}
+
+	else
+	{
+		std::cerr << "Precise the test you want to do" << std::endl;
+	}
+
 	return 0;
 }
