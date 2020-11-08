@@ -32,6 +32,37 @@ void test_simple_image()
 	std::cout << img2 << std::endl;
 }
 
+void test_image(std::string path)
+{
+	tp2::Image img{};
+
+	if (!path.empty())
+	{
+		img = tp2::Image(path);
+	}
+
+	else
+	{
+		std::string name;
+		int width, height;
+
+		std::cout << "Image name : ";
+		std::cin >> name;
+		std::cout << "Image width : ";
+		std::cin >> width;
+		std::cout << "Image height : ";
+		std::cin >> height;
+		std::cout << std::endl;
+
+		img = tp2::Image(name, width, height);
+
+	}
+
+	//std::cout << img << std::endl;
+	tp2::save(img);
+	
+}
+
 
 int main(int argc, char const *argv[])
 {
@@ -45,6 +76,19 @@ int main(int argc, char const *argv[])
 		else if (strcmp(argv[1], "simple_image") == 0)
 		{
 			test_simple_image();
+		}
+
+		else if (strcmp(argv[1], "image") == 0)
+		{
+			if (argv[2])
+			{
+				test_image(argv[2]);
+			}
+
+			else
+			{
+				test_image("");
+			}
 		}
 
 		else

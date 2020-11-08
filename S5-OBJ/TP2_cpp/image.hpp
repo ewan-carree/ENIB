@@ -7,6 +7,7 @@
 #include <iostream>
 #include <utility> // std::move()
 #include <random>
+#include <fstream>
 
 #include "color.hpp"
 
@@ -23,6 +24,7 @@ namespace tp2
 
 		public:
 		Image(std::string name, int width, int height, bool rdmPix = true);
+		Image(std::string path);
 
 		Image() = default;    // constructeur par défaut
 		Image(const Image&) = delete;
@@ -53,6 +55,10 @@ namespace tp2
 	}
 
 	std::ostream& operator<<(std::ostream& os, const Image& i1);
+
+	std::string imageName(std::string path);
+
+	void save(const Image& i1);
 
 } //tp2
 #endif //IMAGE_HPP
