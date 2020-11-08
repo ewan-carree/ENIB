@@ -389,7 +389,7 @@ class Player(Team):
 
 	@property
 	def team(self):
-		return self._team
+		return self.__team
 
 	def change_team(self, new_team):
 		if new_team:
