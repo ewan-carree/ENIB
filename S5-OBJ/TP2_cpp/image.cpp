@@ -26,4 +26,16 @@ namespace tp2
 			
 		}
 	}
+
+	std::ostream& operator<<(std::ostream& os, const Image& i1)
+	{
+		os << i1.name() << std::endl << i1.width() << ' ' << i1.height() << std::endl;
+		for (int i = 0; i < size(i1); i++)
+		{
+			os << i1[i] << std::endl;
+		}
+
+		return os;
+	}
+
 } //tp2

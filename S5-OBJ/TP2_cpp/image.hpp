@@ -31,18 +31,28 @@ namespace tp2
 		Image& operator=(Image&&) = default;
 		~Image() = default;
 
+		Color operator[](int i) const;
+
+		std::string name() const;
+		int width() const;
+		int height() const;
+
 		
 	};
 
-	/*inline std::ostream& operator<<(std::ostream& os, const Image& i1)
-	{
-		os << i1.name_ << std::endl << i1.width_ << ' ' << i1.height_ << std::endl;
-		for (const auto& pixel : i1.pixels_)
-		{
-			os << pixel << std::endl;
-		}
+	inline std::string Image::name() const {return name_;}
+	inline int Image::width() const {return width_;}
+	inline int Image::height() const {return height_;}
 
-		return os;*/
+	inline int size(const Image &img) { return img.width()*img.height();}
+
+	inline Color Image::operator[](int i) const 
+	{
+		if(i<width_*height_) return pixels_[i];
+		else throw std::out_of_range("out of range");
 	}
+
+	std::ostream& operator<<(std::ostream& os, const Image& i1);
+
 } //tp2
 #endif //IMAGE_HPP

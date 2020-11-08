@@ -28,8 +28,8 @@ void test_simple_image()
 	tp2::Image img1{"random",5,3};
 	tp2::Image img2{"black",3,4,false};
 
-	//std::cout << img1 << std::endl;
-	//std::cout << img2 << std::endl;
+	std::cout << img1 << std::endl;
+	std::cout << img2 << std::endl;
 }
 
 
