@@ -15,6 +15,9 @@ namespace tp2
 {
 	using colvec = std::vector<Color>;
 
+	struct RGBimage { };
+	struct YUVimage { };
+
 	class Image
 	{
 		private:
@@ -24,7 +27,8 @@ namespace tp2
 
 		public:
 		Image(std::string name, int width, int height, bool rdmPix = true);
-		Image(std::string path);
+		Image(std::string path, RGBimage tag={});
+		Image(std::string path, YUVimage);
 
 		Image() = default;    // constructeur par défaut
 		Image(const Image&) = delete;
@@ -34,6 +38,7 @@ namespace tp2
 		~Image() = default;
 
 		Color operator[](int i) const;
+		Color& operator[](int i);
 
 		std::string name() const;
 		int width() const;
@@ -54,11 +59,19 @@ namespace tp2
 		else throw std::out_of_range("out of range");
 	}
 
+	inline Color& Image::operator[](int i) 
+	{
+		if(i<width_*height_) return pixels_[i];
+		else throw std::out_of_range("out of range");
+	}
+
 	std::ostream& operator<<(std::ostream& os, const Image& i1);
 
 	std::string imageName(std::string path);
 
 	void save(const Image& i1);
+
+	Image grey(const Image& i1);
 
 } //tp2
 #endif //IMAGE_HPP

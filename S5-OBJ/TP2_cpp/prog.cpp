@@ -32,7 +32,7 @@ void test_simple_image()
 	std::cout << img2 << std::endl;
 }
 
-void test_image(std::string path)
+void test_image(std::string path, bool greyImage)
 {
 	tp2::Image img{};
 
@@ -58,14 +58,26 @@ void test_image(std::string path)
 
 	}
 
-	//std::cout << img << std::endl;
-	tp2::save(img);
+	//tp2::save(img);
+
+	if (greyImage)
+	{
+		auto img_grey = tp2::grey(img);
+		tp2::save(img_grey);
+	}
 	
+}
+
+void test_yuv(std::string path)
+{
+	tp2::Image img{path, tp2::YUVimage{}};
+	tp2::save(img);
 }
 
 
 int main(int argc, char const *argv[])
 {
+	std::cout << "~~~~" << __func__ << "~~~~" << std::endl;
 	if (argc > 1)
 	{
 		if (strcmp(argv[1], "color") == 0)
@@ -82,14 +94,40 @@ int main(int argc, char const *argv[])
 		{
 			if (argv[2])
 			{
-				test_image(argv[2]);
+				test_image(argv[2], false);
 			}
 
 			else
 			{
-				test_image("");
+				test_image("", false);
 			}
 		}
+
+		else if (strcmp(argv[1], "grey") == 0)
+		{
+			if (argv[2])
+			{
+				test_image(argv[2], true);
+			}
+
+			else
+			{
+				test_image("", true);
+			}
+		}
+
+		else if (strcmp(argv[1], "yuv") == 0)
+			{
+				if (argv[2])
+				{
+					test_yuv(argv[2]);
+				}
+
+				else
+				{
+					throw std::invalid_argument("You didn't enter the path to the picture");
+				}
+			}
 
 		else
 		{

@@ -27,7 +27,7 @@ namespace tp2
 		}
 	}
 
-	Image::Image(std::string path): name_{imageName(path)}, width_{}, height_{}, pixels_{}  
+	Image::Image(std::string path, RGBimage): name_{imageName(path)}, width_{}, height_{}, pixels_{}  
 	{ 
 		std::ifstream input(path);   
 		if(!input) 
@@ -52,6 +52,27 @@ namespace tp2
 			input >> b;
 			pixels_.push_back(Color(uchar(r), uchar(g), uchar(b)));
 		}
+	}
+
+	Image::Image(std::string path, YUVimage): Image(imageName(path), 640, 480, false)
+	{
+		std::ifstream input(path, std::ios::binary);
+		if(!input)
+		{
+			throw std::runtime_error("cannot read from file " + name_);
+		}
+
+		const int byteCount = width_*height_*4/2; // 4 bytes for 2 pixels
+		std::vector<uchar> bytes(byteCount);
+		
+		input.read((char*)bytes.data(), byteCount);
+		
+		int j=0;
+		for(int i=0; i<byteCount; i+=4) {
+			const uchar y0=bytes[i+0], u=bytes[i+1], y1=bytes[i+2], v=bytes[i+3];
+			pixels_[j++] = RGBfromYUV(y0,u,v);
+			pixels_[j++] = RGBfromYUV(y1,u,v);
+		}  
 	}
 
 	std::ostream& operator<<(std::ostream& os, const Image& i1)
@@ -108,5 +129,18 @@ namespace tp2
 		
 	}
 
+	Image grey(const Image& i1)
+	{
+		Image img_grey{i1.name()+"_grey", i1.width(), i1.height(), false};
+		
+		for (int i = 0; i < size(i1); i++)
+		{
+			img_grey[i] = grey(i1[i]);
+			std::cout << img_grey[i] << std::endl;
+		}
+
+		return img_grey;
+		
+	}
 
 } //tp2

@@ -6,6 +6,7 @@
 #include <stdexcept> //runtime_error
 #include <iostream>
 #include <utility> // std::move()
+#include <algorithm>
 
 namespace tp2
 {
@@ -79,6 +80,17 @@ namespace tp2
 	{	
 		uchar gris = uchar((int(c1[0])+int(c1[1])+int(c1[2]))/3);
 		return Color(gris, gris, gris);
+	}
+
+	inline Color RGBfromYUV(int y, int u, int v)
+	{
+		const double yd=1.1640625*(y-16), ud=u-128, vd=v-128;
+		const double c0=1.59765625, c1=-0.390625, c2=-0.8125, c3=2.015625;
+		auto red = uchar(std::clamp(yd      +c0*vd, 0.0, 255.0));
+		auto green = uchar(std::clamp(yd+c1*ud+c2*vd, 0.0, 255.0));
+		auto blue = uchar(std::clamp(yd+c3*ud      , 0.0, 255.0));
+
+		return Color(red, green, blue);
 	}
 
 	
