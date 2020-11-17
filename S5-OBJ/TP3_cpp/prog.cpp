@@ -27,6 +27,18 @@ int main(void) {
     win.add(elem);
   }
 
+  std::vector<tp3::Rectangle> r;
+  for (int i = 0; i < 10; i++)
+  {
+    r.push_back(tp3::Rectangle{int(width), int(height), xposDistr(rndGen), yposDistr(rndGen), speedDistr(rndGen), speedDistr(rndGen), dimDistr(rndGen), dimDistr(rndGen), tp3::Color(tp3::uchar(colorDistr(rndGen)), tp3::uchar(colorDistr(rndGen)), tp3::uchar(colorDistr(rndGen))), angularDistr(rndGen)}
+  );
+  }
+
+  for (const auto & elem : r)
+  {
+    win.add(elem);
+  }
+
   win.display();
 
   return 0;

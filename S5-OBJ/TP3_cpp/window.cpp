@@ -85,11 +85,22 @@ void Window::drawAll()
   {
     draw(elem,win_);
   }
+
+  for (const auto & elem : rectangles_) 
+  {
+    draw(elem,win_);
+  }
+
 }
 
 void Window::moveAll(double width, double height, double dt)
 {
   for (auto & elem : circles_) 
+  {
+    elem.move(width, height, dt);
+  }
+
+  for (auto & elem : rectangles_) 
   {
     elem.move(width, height, dt);
   }

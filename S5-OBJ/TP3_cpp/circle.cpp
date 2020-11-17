@@ -28,10 +28,12 @@ namespace tp3
         if (x_ < radius_ || x_ > width-radius_)
         {
             sx_ = -sx_;
+            sy_ = 0.;
         }
         if (y_ < radius_ || y_ > height-radius_)
         {
             sy_ = -sy_;
+            sx_ = 0.;
         }
     }
 

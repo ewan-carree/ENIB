@@ -4,7 +4,9 @@
 #include <vector>
 #include <tuple>
 #include "SFML/Graphics.hpp"
+
 #include "circle.hpp"
+#include "Rectangle.hpp"
 
 namespace tp3 {
 
@@ -30,6 +32,7 @@ class Window {
   void display(void);
 
   void add(Circle c) {circles_.push_back(std::move(c));}
+  void add(Rectangle r) {rectangles_.push_back(std::move(r));}
 
   void drawAll();
   void moveAll(double width, double height, double dt);
@@ -39,6 +42,7 @@ class Window {
   double width_, height_;
   sf::RenderWindow win_;
   std::vector<Circle> circles_;
+  std::vector<Rectangle> rectangles_;
 };  // class Window
 
 /* inline member functions */
