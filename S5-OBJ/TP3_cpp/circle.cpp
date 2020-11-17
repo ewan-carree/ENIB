@@ -19,6 +19,21 @@ namespace tp3
             s.setPosition(float(x),float(y));
             win.draw(s); 
         }
+    
+    void Circle::move(double width, double height, double dt)
+    {
+        x_ = x_ + sx_*dt; 
+        y_ = y_ + sy_*dt;
+
+        if (x_ < radius_ || x_ > width-radius_)
+        {
+            sx_ = -sx_;
+        }
+        if (y_ < radius_ || y_ > height-radius_)
+        {
+            sy_ = -sy_;
+        }
+    }
 
 } //tp3
 

@@ -35,7 +35,10 @@ namespace tp3
 		std::tuple<double, double> position() const {return {std::move(x_), std::move(y_)};}
 		double radius() const {return radius_;}
 		Color color() const {return color_;}
+
+		void move(double width, double height, double dt);
 	};
+
 
 	inline std::ostream& operator<<(std::ostream& os, const Circle& c)
 	{

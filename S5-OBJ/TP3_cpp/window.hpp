@@ -32,6 +32,7 @@ class Window {
   void add(Circle c) {circles_.push_back(std::move(c));}
 
   void drawAll();
+  void moveAll(double width, double height, double dt);
 
   private :
   std::string name_;

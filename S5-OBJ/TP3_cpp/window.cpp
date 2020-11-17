@@ -33,6 +33,7 @@ void Window::display() {
     win_.clear(sf::Color(100, 100, 100));
 
     drawAll();
+    moveAll(width_, height_, dt);
 
     win_.display();
 
@@ -83,6 +84,14 @@ void Window::drawAll()
   for (const auto & elem : circles_) 
   {
     draw(elem,win_);
+  }
+}
+
+void Window::moveAll(double width, double height, double dt)
+{
+  for (auto & elem : circles_) 
+  {
+    elem.move(width, height, dt);
   }
 }
 
