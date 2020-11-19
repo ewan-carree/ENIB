@@ -10,9 +10,17 @@ namespace tp3
 
     void Rectangle::angle(double new_angle)
     {
-        if (new_angle > -180 && new_angle < 180)
+        if (new_angle > -180. && new_angle < 180.)
         {
             angle_ = new_angle;
+        }
+        else if (new_angle < -180.)
+        {
+            angle_ = new_angle + 360.;
+        }
+        else
+        {
+            angle_ = new_angle - 360.;
         }
     }
 
@@ -20,17 +28,16 @@ namespace tp3
     {
         x_ = x_ + sx_*dt; 
         y_ = y_ + sy_*dt;
-        angle_ = angle_ + angularSpeed_*dt; //utiliser fonction prive angle()
+
+        angle(angle_ + angularSpeed_*dt);
 
         if (x_ < 0. || x_ > width-width_)
         {
             sx_ = -sx_;
-            sy_ = 0.;
         }
         if (y_ < 0. || y_ > height-height_)
         {
             sy_ = -sy_;
-            sx_ = 0.;
         }
     }
 
