@@ -1,4 +1,4 @@
- #-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 # this GNU-makefile relies on the GCC toolchain
 # nb: on Windows, the Mingw-w64 package provides the mingw32-make.exe command
 #     ( see http://www.enib.fr/~harrouet/s4prc/#environ.windows )
@@ -52,7 +52,8 @@ CPPFLAGS=
 CPPFLAGS+=-I ${SFMLDIR}/include
 LDFLAGS=
 # LDFLAGS+=-L library/path -Wl,-rpath,library/path -l library_name
-# LDFLAGS+=-L ${SFMLDIR}/lib -Wl,-rpath,${SFMLDIR}/lib #         -lsfml-graphics -lsfml-window -lsfml-system
+LDFLAGS+=-L ${SFMLDIR}/lib -Wl,-rpath,${SFMLDIR}/lib \
+         -lsfml-graphics -lsfml-window -lsfml-system
 CFLAGS=
 CXXFLAGS=
 BINFLAGS=
@@ -114,11 +115,14 @@ endif
 COMMON_C_FILES=${filter-out ${MAIN_C_FILES},${wildcard *.c}}
 COMMON_CXX_FILES=${filter-out ${MAIN_CXX_FILES},${wildcard *.cpp}}
 #
-MAIN_OBJECT_FILES=${sort ${patsubst %.c,%.o,${MAIN_C_FILES}}                          ${patsubst %.cpp,%.o,${MAIN_CXX_FILES}}}
-COMMON_OBJECT_FILES=${sort ${patsubst %.c,%.o,${COMMON_C_FILES}}                            ${patsubst %.cpp,%.o,${COMMON_CXX_FILES}}}
+MAIN_OBJECT_FILES=${sort ${patsubst %.c,%.o,${MAIN_C_FILES}} \
+                         ${patsubst %.cpp,%.o,${MAIN_CXX_FILES}}}
+COMMON_OBJECT_FILES=${sort ${patsubst %.c,%.o,${COMMON_C_FILES}} \
+                           ${patsubst %.cpp,%.o,${COMMON_CXX_FILES}}}
 OBJECT_FILES=${MAIN_OBJECT_FILES} ${COMMON_OBJECT_FILES}
 DEPEND_FILES=${patsubst %.o,%.d,${OBJECT_FILES}}
-EXE_FILES=${sort ${patsubst %.c,%${EXE_SUFFIX},${MAIN_C_FILES}}                  ${patsubst %.cpp,%${EXE_SUFFIX},${MAIN_CXX_FILES}}}
+EXE_FILES=${sort ${patsubst %.c,%${EXE_SUFFIX},${MAIN_C_FILES}} \
+                 ${patsubst %.cpp,%${EXE_SUFFIX},${MAIN_CXX_FILES}}}
 #
 GENERATED_FILES=${DEPEND_FILES} ${OBJECT_FILES} ${LIB_TARGET} ${EXE_FILES}
 ifneq (,${findstring Darwin,${OS}})

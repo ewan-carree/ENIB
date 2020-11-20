@@ -25,18 +25,18 @@ class Window {
   Window& operator=(Window&&) = default;
 
   //default destruction is suitable
-  virtual ~Window() = default;
+  ~Window() = default;
   /**/
 
   std::tuple<double,double> size() const;
 
   void display(void);
 
-  //void add(Circle c) {circles_.push_back(std::move(c));}
-  //void add(Rectangle r) {rectangles_.push_back(std::move(r));}
+  void add(Circle c) {circles_.push_back(std::move(c));}
+  void add(Rectangle r) {rectangles_.push_back(std::move(r));}
 
-  //void drawAll();
-  //void moveAll(double width, double height, double dt);
+  void drawAll();
+  void moveAll(double width, double height, double dt);
 
   private :
   std::string name_;

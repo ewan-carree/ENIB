@@ -30,16 +30,18 @@ namespace tp3
 		Rectangle(Rectangle &&) = default; //constructeur par déplacement
 		Rectangle& operator=(const Rectangle &) = default; //affectation par recopie
 		Rectangle& operator=(Rectangle &&) = default; //affectation par déplacement
-		~Rectangle() = default; //destructeur
+		virtual ~Rectangle() = default; //destructeur
 
 		std::tuple<double,double> size() const;
 		double angle() const;
+
+		void move(double width, double height, double dt);
 	};
 
 	inline std::tuple<double,double> Rectangle::size() const {return {width_, height_};}
 	inline double Rectangle::angle() const {return angle_;}
 
-//	void draw(const Rectangle& r1, sf::RenderWindow& window);
+	void draw(const Rectangle& r1, sf::RenderWindow& window);
 
 /*
 	inline std::ostream& operator<<(std::ostream& os, const Rectangle& r)

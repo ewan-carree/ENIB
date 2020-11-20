@@ -32,8 +32,8 @@ void Window::display() {
 
     win_.clear(sf::Color(100, 100, 100));
 
-    //drawAll();
-    //moveAll(width_, height_, dt);
+    drawAll();
+    moveAll(width_, height_, dt);
 
     win_.display();
 
@@ -79,7 +79,7 @@ void Window::display() {
   }
 }
 
-/*void Window::drawAll()
+void Window::drawAll()
 {
   for (const auto & elem : circles_) 
   {
@@ -104,6 +104,6 @@ void Window::moveAll(double width, double height, double dt)
   {
     elem.move(width, height, dt);
   }
-}*/
+}
 
 }  // namespace s5loo

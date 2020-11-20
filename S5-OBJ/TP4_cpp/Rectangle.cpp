@@ -32,7 +32,7 @@ namespace tp3
         angle(angle_ + angularSpeed_*dt);
     }
 
-/*
+
     void draw(const Rectangle& r1, sf::RenderWindow& win)
         {
         auto [w, h] = r1.size();  
@@ -49,6 +49,6 @@ namespace tp3
 
         win.draw(s);
         }
-*/
+
 
 } //tp3

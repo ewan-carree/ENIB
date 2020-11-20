@@ -6,7 +6,7 @@ namespace tp3
     tp4::Shape(std::clamp(x, radius, width-radius), std::clamp(y, radius, height-radius), sx, sy, std::move(color)), 
     radius_{radius} { } 
 
-/*
+
     void draw(const Circle& circ, sf::RenderWindow& win)
         {
             const auto r = (float)circ.radius();
@@ -19,7 +19,7 @@ namespace tp3
             s.setPosition(float(x),float(y));
             win.draw(s); 
         }
-*/
+
 } //tp3
 
 

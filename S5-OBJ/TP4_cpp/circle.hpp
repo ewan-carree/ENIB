@@ -27,7 +27,7 @@ namespace tp3
 		Circle(Circle &&) = default; //constructeur par déplacement
 		Circle& operator=(const Circle &) = default; //affectation par recopie
 		Circle& operator=(Circle &&) = default; //affectation par déplacement
-		~Circle() = default; //destructeur
+		virtual ~Circle() = default; //destructeur
 
 		double radius() const {return radius_;}
 	};
@@ -38,10 +38,10 @@ namespace tp3
 		const auto [x, y] = c.position();
 		os << "Position : " << x << ',' << y << std::endl;
 		return os;
-	}
+	}*/
 
 	void draw(const Circle& c1, sf::RenderWindow& window);
-*/
+
 
 } //tp3
 #endif //CIRCLE_HPP

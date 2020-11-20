@@ -6,6 +6,7 @@
 #include <stdexcept> //runtime_error
 #include <iostream>
 #include <utility> // std::move()
+#include <tuple>
 
 #include "color.hpp"
 
@@ -13,7 +14,7 @@ namespace tp4
 {
 	class Shape
 	{
-		private:
+		protected:
 		double x_, y_;
 		double sx_, sy_;
 		tp3::Color color_;
@@ -25,7 +26,7 @@ namespace tp4
 		Shape(Shape &&) = default; //constructeur par déplacement
 		Shape& operator=(const Shape &) = default; //affectation par recopie
 		Shape& operator=(Shape &&) = default; //affectation par déplacement
-		~Shape() = default; //destructeur
+		virtual ~Shape() = default; //destructeur
 
 		public:
 		std::tuple<double, double> position() const {return {std::move(x_), std::move(y_)};}
