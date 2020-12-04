@@ -81,29 +81,20 @@ void Window::display() {
 
 void Window::drawAll()
 {
-  for (const auto & elem : circles_) 
+  for (const auto & elem : shapes_) 
   {
-    draw(elem,win_);
-  }
-
-  for (const auto & elem : rectangles_) 
-  {
-    draw(elem,win_);
+    elem->draw(win_);
   }
 
 }
 
 void Window::moveAll(double width, double height, double dt)
 {
-  for (auto & elem : circles_) 
+  for (auto & elem : shapes_) 
   {
-    elem.move(width, height, dt);
+    elem->move(width, height, dt);
   }
 
-  for (auto & elem : rectangles_) 
-  {
-    elem.move(width, height, dt);
-  }
 }
 
 }  // namespace s5loo

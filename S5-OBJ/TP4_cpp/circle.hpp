@@ -15,7 +15,7 @@
 
 namespace tp3
 {
-	class Circle : public tp4::Shape
+	class Circle final : public tp4::Shape
 	{
 		private:
 		double radius_;
@@ -23,13 +23,8 @@ namespace tp3
 		public:
 		Circle(int height, int width, double x, double y, double sx, double sy, double radius, Color color);
 
-		Circle(const Circle &) = default; //constructeur par recopie
-		Circle(Circle &&) = default; //constructeur par déplacement
-		Circle& operator=(const Circle &) = default; //affectation par recopie
-		Circle& operator=(Circle &&) = default; //affectation par déplacement
-		virtual ~Circle() = default; //destructeur
-
 		double radius() const {return radius_;}
+		void draw(sf::RenderWindow& win) override;
 	};
 
 /*
@@ -40,7 +35,7 @@ namespace tp3
 		return os;
 	}*/
 
-	void draw(const Circle& c1, sf::RenderWindow& window);
+	
 
 
 } //tp3

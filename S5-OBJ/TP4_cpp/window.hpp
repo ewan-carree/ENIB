@@ -32,8 +32,7 @@ class Window {
 
   void display(void);
 
-  void add(Circle c) {circles_.push_back(std::move(c));}
-  void add(Rectangle r) {rectangles_.push_back(std::move(r));}
+  void add(std::unique_ptr<tp4::Shape> s) {shapes_.push_back(std::move(s));}
 
   void drawAll();
   void moveAll(double width, double height, double dt);
@@ -42,8 +41,7 @@ class Window {
   std::string name_;
   double width_, height_;
   sf::RenderWindow win_;
-  std::vector<Circle> circles_;
-  std::vector<Rectangle> rectangles_;
+  std::vector<std::unique_ptr<tp4::Shape>> shapes_;
 };  // class Window
 
 /* inline member functions */

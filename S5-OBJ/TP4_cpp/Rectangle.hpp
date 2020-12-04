@@ -15,7 +15,7 @@
 
 namespace tp3
 {
-	class Rectangle : public tp4::Shape
+	class Rectangle final : public tp4::Shape
 	{
 		private:
 		double width_, height_;
@@ -26,22 +26,18 @@ namespace tp3
 		public:
 		Rectangle(int win_height, int win_width, double x, double y, double sx, double sy, double rec_width, double rec_height, Color color, double angularSpeed = 0.0);
 
-		Rectangle(const Rectangle &) = default; //constructeur par recopie
-		Rectangle(Rectangle &&) = default; //constructeur par déplacement
-		Rectangle& operator=(const Rectangle &) = default; //affectation par recopie
-		Rectangle& operator=(Rectangle &&) = default; //affectation par déplacement
-		virtual ~Rectangle() = default; //destructeur
-
 		std::tuple<double,double> size() const;
 		double angle() const;
 
-		void move(double width, double height, double dt);
+		void move(double width, double height, double dt) override;
+
+		void draw(sf::RenderWindow& win) override;
 	};
 
 	inline std::tuple<double,double> Rectangle::size() const {return {width_, height_};}
 	inline double Rectangle::angle() const {return angle_;}
 
-	void draw(const Rectangle& r1, sf::RenderWindow& window);
+	
 
 /*
 	inline std::ostream& operator<<(std::ostream& os, const Rectangle& r)

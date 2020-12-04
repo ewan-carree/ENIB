@@ -7,15 +7,15 @@ namespace tp3
     radius_{radius} { } 
 
 
-    void draw(const Circle& circ, sf::RenderWindow& win)
+    void Circle::draw(sf::RenderWindow& win)
         {
-            const auto r = (float)circ.radius();
+            const auto r = (float)radius();
             sf::CircleShape s{r};
 
-            const Color& c = circ.color();
+            const Color& c = color();
             s.setFillColor(sf::Color(c[0], c[1], c[2]));
             s.setOrigin(r, r);
-            auto [x, y] = circ.position();
+            auto [x, y] = position();
             s.setPosition(float(x),float(y));
             win.draw(s); 
         }

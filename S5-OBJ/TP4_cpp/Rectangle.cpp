@@ -33,19 +33,19 @@ namespace tp3
     }
 
 
-    void draw(const Rectangle& r1, sf::RenderWindow& win)
+    void Rectangle::draw(sf::RenderWindow& win)
         {
-        auto [w, h] = r1.size();  
+        auto [w, h] = size();  
         sf::RectangleShape s{sf::Vector2f{(float)w, (float)h}};  
 
-        auto c = r1.color(); 
+        auto c = color(); 
         s.setFillColor(sf::Color{c[0], c[1], c[2]}); 
 
         s.setOrigin(0., 0.); 
 
-        auto [x, y] = r1.position(); 
+        auto [x, y] = position(); 
         s.setPosition(float(x), float(y));   
-        s.setRotation(float(r1.angle())); 
+        s.setRotation(float(angle())); 
 
         win.draw(s);
         }
