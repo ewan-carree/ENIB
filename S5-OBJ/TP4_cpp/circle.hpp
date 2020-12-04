@@ -21,6 +21,7 @@ namespace tp3
 		double radius_;
 
 		public:
+		Circle() = default;
 		Circle(int height, int width, double x, double y, double sx, double sy, double radius, Color color);
 
 		double radius() const {return radius_;}

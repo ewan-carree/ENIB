@@ -24,6 +24,7 @@ namespace tp3
 		void angle(double new_angle);
 
 		public:
+		Rectangle() = default;
 		Rectangle(int win_height, int win_width, double x, double y, double sx, double sy, double rec_width, double rec_height, Color color, double angularSpeed = 0.0);
 
 		std::tuple<double,double> size() const;

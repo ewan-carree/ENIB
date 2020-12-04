@@ -3,7 +3,7 @@
 namespace tp3
 {
     Circle::Circle(int height, int width, double x, double y, double sx, double sy, double radius, Color color) : 
-    tp4::Shape(std::clamp(x, radius, width-radius), std::clamp(y, radius, height-radius), sx, sy, std::move(color)), 
+    tp4::Shape{std::clamp(x, radius, width-radius), std::clamp(y, radius, height-radius), sx, sy, std::move(color)}, 
     radius_{radius} { } 
 
 

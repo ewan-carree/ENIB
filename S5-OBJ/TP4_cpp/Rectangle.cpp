@@ -4,7 +4,7 @@ namespace tp3
 {
 
     Rectangle::Rectangle(int win_height, int win_width, double x, double y, double sx, double sy, double rec_width, double rec_height, Color color, double angularSpeed) :
-    tp4::Shape(std::clamp(x, 0., win_width-rec_width), std::clamp(y, 0., win_height-rec_height), sx, sy, std::move(color)), 
+    tp4::Shape{std::clamp(x, 0., win_width-rec_width), std::clamp(y, 0., win_height-rec_height), sx, sy, std::move(color)}, 
     width_{rec_width}, 
     height_{rec_height}, 
     angularSpeed_{angularSpeed}, 

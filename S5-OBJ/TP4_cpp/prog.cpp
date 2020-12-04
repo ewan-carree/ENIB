@@ -15,23 +15,14 @@ int main(void) {
   std::uniform_real_distribution<double> yposDistr{0, height};
   std::uniform_real_distribution<double> angularDistr{-15, 15};
 
-  // std::vector<std::unique_ptr<tp4::Shape>> s;
-  // for (int i = 0; i < 10; i++)
-  // {
-    
-  //   s.push_back(std::make_unique<tp4::Shape>(tp3::Circle{int(width), int(height), xposDistr(rndGen), yposDistr(rndGen), speedDistr(rndGen), speedDistr(rndGen), dimDistr(rndGen), tp3::Color(tp3::uchar(colorDistr(rndGen)), tp3::uchar(colorDistr(rndGen)), tp3::uchar(colorDistr(rndGen)))}));
+for (int i = 0; i < 10; i++)
+{
+  win.add(std::make_unique<tp3::Circle>(int(width), int(height), xposDistr(rndGen), yposDistr(rndGen), speedDistr(rndGen), speedDistr(rndGen), dimDistr(rndGen), tp3::Color(tp3::uchar(colorDistr(rndGen)), tp3::uchar(colorDistr(rndGen)), tp3::uchar(colorDistr(rndGen)))));
 
-  //   s.push_back(std::make_unique<tp4::Shape>(tp3::Rectangle{int(width), int(height), xposDistr(rndGen), yposDistr(rndGen), speedDistr(rndGen), speedDistr(rndGen), dimDistr(rndGen), dimDistr(rndGen), tp3::Color(tp3::uchar(colorDistr(rndGen)), tp3::uchar(colorDistr(rndGen)), tp3::uchar(colorDistr(rndGen))), angularDistr(rndGen)}));
-  // }
+  win.add(std::make_unique<tp3::Rectangle>(int(width), int(height), xposDistr(rndGen), yposDistr(rndGen), speedDistr(rndGen), speedDistr(rndGen), dimDistr(rndGen), dimDistr(rndGen), tp3::Color(tp3::uchar(colorDistr(rndGen)), tp3::uchar(colorDistr(rndGen)), tp3::uchar(colorDistr(rndGen))), angularDistr(rndGen)));
+}
 
-  // for (const auto & elem : s)
-  // {
-  //   win.add(elem);
-  // }
-
-  auto one_circ = tp3::Circle{int(width), int(height), xposDistr(rndGen), yposDistr(rndGen), speedDistr(rndGen), speedDistr(rndGen), dimDistr(rndGen), tp3::Color(tp3::uchar(colorDistr(rndGen)), tp3::uchar(colorDistr(rndGen)), tp3::uchar(colorDistr(rndGen)))};
   
-  win.add(std::make_unique<tp4::Shape>(one_circ));
 
   win.display();
 

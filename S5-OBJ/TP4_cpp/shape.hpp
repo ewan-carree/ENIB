@@ -7,6 +7,7 @@
 #include <iostream>
 #include <utility> // std::move()
 #include <tuple>
+#include "SFML/Graphics.hpp"
 
 #include "color.hpp"
 
@@ -14,10 +15,12 @@ namespace tp4
 {
 	class Shape
 	{
-		protected:
+		private:
 		double x_, y_;
 		double sx_, sy_;
 		tp3::Color color_;
+
+		public:
 
 		Shape(double x, double y, double sx, double sy, tp3::Color color) : x_{x}, y_{y}, sx_{sx}, sy_{sy}, color_{color} { }
 
@@ -27,7 +30,6 @@ namespace tp4
 		Shape& operator=(Shape &&) = delete; //affectation par déplacement
 		virtual ~Shape() = default; //destructeur
 
-		public:
 		std::tuple<double, double> position() const {return {std::move(x_), std::move(y_)};}
 		tp3::Color color() const {return color_;}
 
