@@ -7,7 +7,7 @@ namespace tp3
     radius_{radius} { } 
 
 
-    void Circle::draw(sf::RenderWindow& win)
+    void Circle::draw(sf::RenderWindow& win) const
         {
             const auto r = (float)radius();
             sf::CircleShape s{r};
@@ -19,6 +19,11 @@ namespace tp3
             s.setPosition(float(x),float(y));
             win.draw(s); 
         }
+    
+    double Circle::boundingSphere() const
+    {
+        return radius_;
+    }
 
 } //tp3
 

@@ -33,7 +33,7 @@ namespace tp3
     }
 
 
-    void Rectangle::draw(sf::RenderWindow& win)
+    void Rectangle::draw(sf::RenderWindow& win) const
         {
         auto [w, h] = size();  
         sf::RectangleShape s{sf::Vector2f{(float)w, (float)h}};  
@@ -49,6 +49,12 @@ namespace tp3
 
         win.draw(s);
         }
+
+    double Rectangle::boundingSphere() const
+    {
+        double hypothenus = sqrt(pow(width_, 2) + pow(height_, 2));
+        return hypothenus/2;
+    }
 
 
 } //tp3

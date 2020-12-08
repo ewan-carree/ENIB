@@ -9,6 +9,7 @@
 #include "SFML/Graphics.hpp"
 #include <tuple>
 #include <exception>
+#include <cmath>
 
 #include "color.hpp"
 #include "shape.hpp"
@@ -32,7 +33,8 @@ namespace tp3
 
 		void move(double width, double height, double dt) override;
 
-		void draw(sf::RenderWindow& win) override;
+		void draw(sf::RenderWindow& win) const override;
+		double boundingSphere() const override;
 	};
 
 	inline std::tuple<double,double> Rectangle::size() const {return {width_, height_};}

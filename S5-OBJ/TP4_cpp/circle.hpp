@@ -25,7 +25,8 @@ namespace tp3
 		Circle(int height, int width, double x, double y, double sx, double sy, double radius, Color color);
 
 		double radius() const {return radius_;}
-		void draw(sf::RenderWindow& win) override;
+		void draw(sf::RenderWindow& win) const override;
+		double boundingSphere() const override;
 	};
 
 /*

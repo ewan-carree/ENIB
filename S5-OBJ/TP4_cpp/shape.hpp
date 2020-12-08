@@ -34,7 +34,8 @@ namespace tp4
 		tp3::Color color() const {return color_;}
 
 		virtual void move(double width, double height, double dt);
-		virtual void draw(sf::RenderWindow& win) = 0;
+		virtual void draw(sf::RenderWindow& win) const = 0;
+		virtual double boundingSphere() const = 0;
 		
 	};
 
