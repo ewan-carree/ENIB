@@ -90,11 +90,22 @@ a_end:			mov r0, r2
 //---------------------------------------------------------------------------
 			.type	uint2asciihexa, %function
 uint2asciihexa:
-
-			
-			
-			mov		pc, lr
-			
+			push	{r4, lr}
+			ldr		r2, =hexa_digit	// adresse du tableau hexa_digit
+			mov		r3, #'0'		// écrire 0x dans la chaîne
+			strb	r3, [r1], #1
+			mov		r3, #'x'
+			strb	r3, [r1], #1
+			mov		r4, #28			// compteur
+u_loop:		mov		r3, r0, lsr r4	// valeur entière décalée
+			and		r3, r3, #0xF	// et masquée
+			ldrb	r3, [r2, r3]	// chargement digit en ASCII
+			strb	r3, [r1], #1	// écriture dans la chaîne et post inc du pointeur r1
+			subs	r4, r4, #4		// décrémenter ...
+			bge		u_loop			// ... et reboucler éventuellement
+			mov		r3, #0			// écriture octet nul
+			strb	r3, [r1]
+			pop		{r4, pc}
         	.size	uint2asciihexa, .-uint2asciihexa
         	
 //---------------------------------------------------------------------------
@@ -102,7 +113,7 @@ uint2asciihexa:
 //---------------------------------------------------------------------------
 main:		// test strlen
 			/* PASSAGE DE PARAMETRES A COMPLETER */
-
+			ldr		r0, =s1
 			bl		strlen
         
 			// test asciihexa2uint
@@ -111,8 +122,9 @@ main:		// test strlen
 			bl		asciihexa2uint
 
 			// test uint2asciihexa
-			/* PASSAGE DE PARAMETRES A COMPLETER */
-			ldr r0, =x
+			ldr		r0, =x
+			ldr		r0, [r0]
+			ldr		r1, =s
 			bl		uint2asciihexa
         
         	// test strlen8
