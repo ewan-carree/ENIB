@@ -1,21 +1,22 @@
 package hulk;
 
-public interface NonContamined extends Action {
-	@Override
-	public default void swallowSubstance(BruceDanner b) {
-		// TODO Auto-generated method stub
-		b.setState(State.CONTAMINED);
-	}
+public class NonContamined implements StateBruceDanner {
 
 	@Override
-	public default void meetBetty(BruceDanner b) {
-		// TODO Auto-generated method stub
-		present(b);
-	}
-
-	@Override
-	public default void present(BruceDanner b) {
-		// TODO Auto-generated method stub
+	public void present() {
 		System.out.println("I'm Bruce Danner");
 	}
+
+	@Override
+	public StateBruceDanner swallowSubstance() {
+		// TODO Auto-generated method stub
+		return CONTAMINED;
+	}
+
+	@Override
+	public StateBruceDanner meetBetty() {
+		// TODO Auto-generated method stub
+		return this;
+	}
+	
 }

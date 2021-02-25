@@ -1,38 +1,32 @@
 package hulk;
 
-public class BruceDanner implements Contamined, NonContamined, Hulk {
+public class BruceDanner {
+	private StateBruceDanner state;
 	
-	private State state;
-
-	public BruceDanner(State state) {
-		// TODO Auto-generated constructor stub
+	public BruceDanner(StateBruceDanner state) {
 		this.state = state;
 	}
 
-	@Override
-	public void swallowSubstance(BruceDanner b) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void meetBetty(BruceDanner b) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void present(BruceDanner b) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public State getState() {
+	public StateBruceDanner getState() {
 		return state;
 	}
 
-	public void setState(State state) {
+	public void setState(StateBruceDanner state) {
 		this.state = state;
 	}
+
+	public void present() {
+		this.state.present();
+	}
+
+	public void swallowSubstance() {
+		this.state = this.state.swallowSubstance();
+	}
+
+	public void meetBetty() {
+		this.state = this.state.meetBetty();
+	} 
+	
+	
 
 }
