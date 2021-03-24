@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <title> Static page </title>
+</head>
+
+<body>
+    <div id="div">peut-être</div>
+    <button onclick = "test()">test</button>
+    <script type="text/javascript ">
+    var x = ["oui", "non"];
+    const div=document.getElementById("div");
+    var count = 0;
+    //alert(div);
+    function test(){
+        if (count%2 == 0){
+            div.innerHTML = x[0];
+        }
+        else {
+            div.innerHTML = x[1];
+        }
+        count++;
+    }
+    
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <title> Static page </title>
+</head>
+
+<body>
+<script>
+    function DOC(authorName, nb) {
+        this.nbPage = nb;
+        this.auteur = authorName;
+    }
+
+    DOC.prototype.renseignement = function() {
+        return this.nbPage + " " + this.auteur;
+    }
+
+    var unDoc = new DOC("durant", 200)
+    alert(unDoc.renseignement());
+</script>
+</body>
+
+</html>
