@@ -1,0 +1,11 @@
+package paintItBlack;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Battements fenetre = new Battements("Battements");
+		fenetre.initializeBattements();
+		fenetre.setVisible(true);
+		System.out.println("Window displayed");
+	}
+}

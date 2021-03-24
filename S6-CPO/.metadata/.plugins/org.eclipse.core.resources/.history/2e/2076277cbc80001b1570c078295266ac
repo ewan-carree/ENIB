@@ -1,0 +1,24 @@
+package console;
+
+import java.io.IOException;
+
+@SuppressWarnings("serial")
+public class ReadIntException extends Exception {
+	public ReadIntException() {
+		super();
+		System.out.println("int error");
+	}
+
+//	public static int readInt() throws IOException, NumberFormatException {
+//		int n = 0;
+//		try {
+//			n = Integer.parseInt(Console.readString());
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		catch (NumberFormatException e) {
+//			e.printStackTrace();
+//		}
+//		return n;
+//	}
+}

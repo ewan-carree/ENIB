@@ -1,0 +1,10 @@
+command=C\:\\Users\\carre\\.p2\\pool\\plugins\\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.1.v20201027-0507\\jre\\bin\\javadoc.exe
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.lang.Exception"><rhs name\="java.io.IOException"/><rhs name\="console.ReadStringException"/></lhs><lhs name\="java.lang.Throwable"><rhs name\="java.io.IOException"/><rhs name\="console.ReadStringException"/></lhs><lhs name\="java.io.IOException"><rhs name\="java.io.IOException"/></lhs><lhs name\="javax.swing.JLabel"><rhs name\="paintItBlack.NombreBattements"/></lhs><lhs name\="javax.swing.SwingConstants"><rhs name\="paintItBlack.NombreBattements"/></lhs><lhs name\="javax.accessibility.Accessible"><rhs name\="paintItBlack.NombreBattements"/></lhs><lhs name\="javax.swing.JComponent"><rhs name\="paintItBlack.NombreBattements"/></lhs><lhs name\="javax.swing.TransferHandler$HasGetTransferHandler"><rhs name\="paintItBlack.NombreBattements"/></lhs><lhs name\="java.awt.Container"><rhs name\="paintItBlack.NombreBattements"/></lhs><lhs name\="java.awt.Component"><rhs name\="paintItBlack.NombreBattements"/></lhs><lhs name\="java.awt.image.ImageObserver"><rhs name\="paintItBlack.NombreBattements"/></lhs><lhs name\="java.awt.MenuContainer"><rhs name\="paintItBlack.NombreBattements"/></lhs><lhs name\="paintItBlack.NombreBattements"><rhs name\="paintItBlack.NombreBattements"/></lhs><lhs name\="console.ReadStringException"><rhs name\="console.ReadStringException"/></lhs><lhs name\="java.awt.Paint"><rhs name\="java.awt.Color"/></lhs><lhs name\="java.awt.Transparency"><rhs name\="java.awt.Color"/></lhs><lhs name\="java.awt.Color"><rhs name\="java.awt.Color"/></lhs></history>
+content_assist_number_of_computers=12
+eclipse.preferences.version=1
+org.eclipse.jdt.internal.ui.navigator.layout=2
+org.eclipse.jdt.internal.ui.navigator.librariesnode=true
+org.eclipse.jdt.ui.formatterprofiles.version=20
+spelling_locale_initialized=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

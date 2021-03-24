@@ -1,0 +1,26 @@
+package paintItBlack;
+
+import java.awt.BorderLayout;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+
+@SuppressWarnings("serial")
+public class Battements extends JFrame {
+
+	public Battements(String windowName) {
+		super(windowName);
+		NombreBattements nb_battements = new NombreBattements();
+	}
+	
+	public void initializeBattements(){
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		JComponent newContentPane = new JPanel(new BorderLayout());
+		setContentPane(newContentPane);
+		pack();
+		setResizable(true);
+	}
+	
+	
+}

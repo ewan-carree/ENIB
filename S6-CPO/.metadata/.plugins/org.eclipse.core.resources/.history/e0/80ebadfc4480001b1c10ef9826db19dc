@@ -1,0 +1,13 @@
+package console;
+
+import javax.swing.JLabel;
+
+@SuppressWarnings("serial")
+public class NombreBattements extends JLabel {
+	private int nb_battements;
+	private final String text = "Nombre de battements : " + this.nb_battements;
+	
+	public NombreBattements() {
+		this.nb_battements = 0;
+	}
+}

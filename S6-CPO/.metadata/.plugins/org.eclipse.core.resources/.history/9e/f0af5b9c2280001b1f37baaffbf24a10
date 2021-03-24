@@ -1,0 +1,21 @@
+package console;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ReadStringException extends Exception{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	public static String readString() throws IOException {
+		String myStr = null;
+		BufferedReader inputStream = new BufferedReader(new InputStreamReader(System.in));
+		myStr = inputStream.readLine();
+		return myStr;
+	}
+
+}

@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"console","l":"Console"},{"p":"console","l":"ReadIntException"},{"p":"console","l":"ReadStringException"}];updateSearchResults();

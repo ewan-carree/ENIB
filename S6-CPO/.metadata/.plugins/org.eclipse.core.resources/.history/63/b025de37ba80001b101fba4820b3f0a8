@@ -1,0 +1,21 @@
+package console;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+@SuppressWarnings("serial")
+public class ReadStringException extends Exception{
+	
+	public static String readString() throws IOException {
+		String myStr = null;
+		try {
+			BufferedReader inputStream = new BufferedReader(new InputStreamReader(System.in));
+			myStr = inputStream.readLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return myStr;
+	}
+
+}

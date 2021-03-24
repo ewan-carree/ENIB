@@ -1,0 +1,22 @@
+package paintItBlack;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Battements fenetre = new Battements("Battements");
+		fenetre.initializeBattements();
+		fenetre.setVisible(true);
+		
+		int delay = 1000; //milliseconds
+		ActionListener taskPerformer = new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				System.out.println("Window displayed");
+			}
+		};
+		new Timer(delay, taskPerformer).start();
+	}
+}

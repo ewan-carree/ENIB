@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+iq_sdk_manager_path=C\:\\Users\\carre\\Documents\\connectiq-sdk-manager-windows\\sdkmanager.exe
+logging_log_file_location=C\:\\Users\\carre\\AppData\\Local\\Temp\\GARMIN\\plugin.log
+notification_one_time_warning=true
+pathPreference=C\:\\Users\\carre\\AppData\\Roaming\\Garmin\\ConnectIQ\\Sdks\\connectiq-sdk-win-3.2.3-2020-10-13-c14e609bd\\

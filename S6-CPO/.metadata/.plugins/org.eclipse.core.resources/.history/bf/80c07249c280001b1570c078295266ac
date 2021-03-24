@@ -1,0 +1,13 @@
+package paintItBlack;
+
+import javax.swing.JLabel;
+
+@SuppressWarnings("serial")
+public class NombreBattements extends JLabel {
+	private static int nb_battements;
+	
+	public NombreBattements() {
+		super("Nombre de battements : " + String.valueOf(nb_battements));
+		NombreBattements.nb_battements = 0;
+	}
+}

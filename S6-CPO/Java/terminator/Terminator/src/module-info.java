@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author carre
+ *
+ */
+module terminator {
+}

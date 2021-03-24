@@ -1,0 +1,24 @@
+package console;
+
+import java.io.IOException;
+
+public class ReadIntException extends Exception {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public static int readInt() throws IOException, NumberFormatException {
+		int n = 0;
+		try {
+			n = Integer.parseInt(Console.readString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
+}
