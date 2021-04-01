@@ -6,3 +6,6 @@
 *.sql linguist-vendored=false
 S4-ELE/Vuvuzela/vuvuzela_RLC.asc linguist-vendored=true
 GNUmakefile linguist-vendored=true
+*.prefs linguist-vendored=true
+*.xml linguist-vendored=true
+*.gitignore linguist-vendored=true
